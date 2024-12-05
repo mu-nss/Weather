@@ -6,6 +6,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import zerobase.weather.domain.Diary;
 import zerobase.weather.repository.DiaryRepository;
 
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional(readOnly = true)
 public class DiaryService {
     @Value("${openweathermap.key}")
     private String apiKey;
@@ -29,13 +32,12 @@ public class DiaryService {
         this.diaryRepository = diaryRepository;
     }
 
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void createDiary(LocalDate date, String text) {
         // open weather map에서 날씨 데이터 가져오기
         String weatherData = getWeatherString();
-
         // 받아온 날씨 json 파싱하기
         Map<String, Object> parseWeather = parseWeather(weatherData);
-
         // 파싱된 데이터 + 일기 값 우리 db에 넣기
         Diary newDiary = new Diary();
         newDiary.setWeather(parseWeather.get("main").toString());
@@ -46,6 +48,7 @@ public class DiaryService {
         diaryRepository.save(newDiary);
     }
 
+    @Transactional(readOnly = true)
     public List<Diary> readDiary(LocalDate date) {
         return diaryRepository.findAllByDate(date);
     }
@@ -54,7 +57,7 @@ public class DiaryService {
         return diaryRepository.findAllByDateBetween(startDate, endDate);
     }
 
-    public void updateDiary(LocalDate date,  String text) {
+    public void updateDiary(LocalDate date, String text) {
         Diary nowDiary = diaryRepository.getFirstByDate(date);
         nowDiary.setText(text);
         diaryRepository.save(nowDiary);

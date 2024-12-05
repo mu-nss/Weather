@@ -1,8 +1,8 @@
 ### create diray
-POST http://localhost:8082/create/diary?date=2022-05-02
+POST http://localhost:8082/create/diary?date=2022-06-01
 
 {
-i wnat to learn spring boot0505
+i wnat to learn spring boot!!!!!
 }
 
 
