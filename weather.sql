@@ -15,3 +15,11 @@ create table diary(
  text varchar(500) not null,
  date date not null
 );
+
+/* 하루에 한 번 날씨 정보를 저장하는 테이블*/
+ create table date_weather( 
+  date date not null primary key, 
+  weather varchar(50) not null, 
+  icon varchar(50) not null, 
+  temperature double not null 
+);
