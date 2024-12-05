@@ -5,14 +5,11 @@ POST http://localhost:8082/create/diary?date=2022-06-01
 i wnat to learn spring boot!!!!!
 }
 
-
 ### read diray
-GET http://localhost:8082/read/diary?date=2022-05-20
-
+GET http://localhost:8082/read/diary?date=dddd
 
 ### read diraies
 GET http://localhost:8082/read/diaries?startDate=2022-02-10&endDate=2022-05-20
-
 
 ### update diary
 PUT http://localhost:8082/update/diary?date=2022-05-20
@@ -20,7 +17,6 @@ PUT http://localhost:8082/update/diary?date=2022-05-20
 {
 this is diary text
 }
-
 
 ### delete diary
 DELETE http://localhost:8082/delete/diary?date=2022-03-03
