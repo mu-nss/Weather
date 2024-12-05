@@ -1,6 +1,26 @@
 ### create diray
-POST http://localhost:8080/create/diary?date=2022-05-20
+POST http://localhost:8082/create/diary?date=2022-05-02
 
 {
-    오늘 코딩 너무 재미었다.
+i wnat to learn spring boot0505
 }
+
+
+### read diray
+GET http://localhost:8082/read/diary?date=2022-05-20
+
+
+### read diraies
+GET http://localhost:8082/read/diaries?startDate=2022-02-10&endDate=2022-05-20
+
+
+### update diary
+PUT http://localhost:8082/update/diary?date=2022-05-20
+
+{
+this is diary text
+}
+
+
+### delete diary
+DELETE http://localhost:8082/delete/diary?date=2022-03-03
