@@ -1,0 +1,6 @@
+### create diray
+POST http://localhost:8080/create/diary?date=2022-05-20
+
+{
+    오늘 코딩 너무 재미었다.
+}
