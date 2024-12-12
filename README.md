@@ -12,7 +12,7 @@
 1. Open Weather Map api
    - 날씨 데이터를 얻어오는데 사용
 
-## :One: 최종 구현 API 리스트
+## :one: 최종 구현 API 리스트
 1. **POST / create / diary**
    - date parameter 로 받아주세요. (date 형식 : yyyy-MM-dd)
    - text parameter 로 일기 글을 받아주세요.
@@ -35,7 +35,7 @@
    - date parameter 로 삭제할 날짜를 받아주세요.
    - 해당 날짜의 모든 일기를 지워주세요.
 
-## :Two: 프로젝트 완성도 높이기
+## :two: 프로젝트 완성도 높이기
 ✅ DB와 관련된 함수들을 트랜잭션 처리 해주세요.
 
 ✅ 매일 새벽 1시에 날씨 데이터를 외부 API 에서 받아다 DB에 저장해두는 로직을 구현해주세요.
